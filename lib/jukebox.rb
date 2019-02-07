@@ -9,16 +9,6 @@ songs = [
   "Harry Chapin - Cats in the Cradle",
   "Amos Lee - Keep It Loose, Keep It Tight"
 ]
-=begin
-def say_hello(name)
-  puts "Hi #{name}!"
-end
-
-puts "Enter your name:"
-users_name = gets.chomp.strip
-
-puts say_hello(users_name)
-=end
 
 def help() #This is the basic output of commands
   output = "I accept the following commands:
@@ -41,31 +31,32 @@ def play(songs)
   songs.each_with_index do |songname,index|
     if (index + 1).to_s == response #checks for a index number
       puts "Playing #{songname}"
+      return
     elsif songname.include? response #checks if the user has typed a song or artist from the list
       puts "Playing #{songname}"
-    else
-      puts "Invalid input, please try again"
+      return
 end
 end
+puts "Invalid input, please try again"
 end
+
 $cond = true
 def exit_jukebox()
   puts "Goodbye"
   $cond = false
 end
 
-def run(args)
+def run(songs)
+  puts "Please enter a command:"
+  help
 while $cond
-args
-help
-puts "Please enter a command:"
 userinput = gets.chomp.strip
 case userinput #using a case switch for commands typed in
-when "help" , "HELP" , "Help"
+when "help"
   help
-when "list" , "LIST" , "List"
+when "list"
   list(songs)
-when "play", "PLAY", "Play"
+when "play"
   play(songs)
 when "exit"
   exit_jukebox()
@@ -73,3 +64,4 @@ when "exit"
 end
 end
 end
+run(songs)
