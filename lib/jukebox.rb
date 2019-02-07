@@ -54,9 +54,10 @@ def exit_jukebox()
   $cond = false
 end
 
-def run(help)
+def run(args)
 while $cond
-
+args
+help
 puts "Please enter a command:"
 userinput = gets.chomp.strip
 case userinput #using a case switch for commands typed in
