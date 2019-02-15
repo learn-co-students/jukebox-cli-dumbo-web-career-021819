@@ -40,7 +40,7 @@ def play(my_songs)
   #if it isn't, tell them their choice is invalid
   #if it is, play the song using the system 'open <file path>' syntax
   #get the file path of the song by looking it up in the my_songs hash
-  puts "Please enter a song song name:"
+  puts "Please enter a song name:"
   user_song = gets.chomp
   if !my_songs.find(user_song)
     puts "Invalid input, please try again"
