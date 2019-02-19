@@ -56,4 +56,37 @@ def exit_jukebox
   puts "Goodbye"
 end
 
+
+def run (user_input)
+  help
   
+  while user_input != "exit" do
+    
+  puts "Please enter a command:"
+  user_input = gets.chomp
+  
+    if user_input == "list"
+      list
+    elsif user_input == "play"
+      play
+    elsif user_input == "help"
+      help
+    elsif user_input == "exit"
+      exit_jukebox
+      break
+    end
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
